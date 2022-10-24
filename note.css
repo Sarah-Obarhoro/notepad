@@ -1,0 +1,43 @@
+body{
+    background: url(images/background-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+.notepad{
+    height: 300px;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+textarea{
+    border-radius: 5px;
+    background-color: #d3d3d388;
+    resize: none;
+    height: 100px;
+    width: 300px;
+    padding: 10px;
+}
+textarea:focus{
+    outline: none;
+}
+#msg{
+    color: red;
+}
+h3{
+    position: relative;
+    top: -150px;
+}
+.mynotes{
+    position: relative;
+    top: -150px;
+    font-size: 1.2em;
+}
