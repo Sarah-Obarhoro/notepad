@@ -5,6 +5,8 @@ let saveNote = document.querySelector("[done]")
 let entry = document.querySelector("#mynotes")
 let msg = document.querySelector("#msg")
 let form = document.querySelector("#form");
+var isEditting = false;
+var noteId = ""
 
 //focus on text area
 document.querySelector("[name=add]").addEventListener("click", (e) => {
@@ -37,15 +39,31 @@ let validate = () => {
 
 let acceptUserEntry = () => {
     let notes = JSON.parse(localStorage.getItem("userEntry")) ?? []
-    notes.push({
-        id: Math.floor(Math.random() * 99999),
-        note: note.value
+
+    if(!isEditting){
+        notes.push({
+            id: Math.floor(Math.random() * 99999),
+            note: note.value
+        })
+
+        localStorage.setItem("userEntry", JSON.stringify(notes));
+        note.value = '';
+
+        return
+    }
+
+    //EDIT LOGIC
+    notes.map((item, index)=> {
+        if(item.id == noteId){
+            item.note = note.value
+        }
     })
 
     localStorage.setItem("userEntry", JSON.stringify(notes));
-    note.value = '';
 
-    // console.log(userEntry)
+    isEditting = false;
+
+    note.value = '';
 }
 
 let buildNotes = () => {
@@ -78,11 +96,11 @@ let editNote = () => {
 
     edit.forEach((e) => {
         e.addEventListener('click', (e) => {
+            isEditting = true;
             let button = e.target
-            let noteId = button.getAttribute('data-note-id')
+            noteId = button.getAttribute('data-note-id')
 
             const data = JSON.parse(localStorage.getItem('userEntry')) ?? {};
-            let notes = Object.values(data)
 
             let getNote = data.filter ((note) => {
                 return note.id == noteId
@@ -90,11 +108,9 @@ let editNote = () => {
 
             note.value = getNote.note
             note.focus()
-        })            
+        })
+        
     })
-
-
-
 }
 
 let deleteEvent = () => {
@@ -103,7 +119,7 @@ let deleteEvent = () => {
     del.forEach(function(e){
         e.addEventListener('click', (e) => {
             let button = e.target
-            let noteId = button.getAttribute('data-note-id')
+            noteId = button.getAttribute('data-note-id')
 
             //get notes from data storage
             const data = JSON.parse(localStorage.getItem('userEntry')) ?? {};
@@ -137,7 +153,8 @@ let deleteEvent = () => {
 buildNotes();
 
 // setInterval(() => {
-//     buildNotes();
+//     // buildNotes();
+//     console.log(noteId)
 
 //     // console.log('Notes listener Fired!')
 
