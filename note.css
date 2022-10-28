@@ -35,11 +35,13 @@ textarea:focus{
 h3{
     position: relative;
     top: -150px;
+    left: 30px;
 }
 .mynotes{
     position: relative;
     top: -150px;
     font-size: 1.2em;
+    left: 30px;
 }
 .editnotes button{
     font-size: 0.5em;
