@@ -18,10 +18,10 @@ body{
     display: block;
     margin-top: 15px;
     margin-bottom: 20px;
-    margin-left: 15px;
+    margin-left: 10px;
     border: 0px solid;
     height: 35px;
-    width: 280px;
+    width: 320px;
     padding-left: 20px;
     border-radius: 4px;
     font-size: 1rem;
@@ -37,4 +37,45 @@ body{
     border: 0px solid;
     border-radius: 3px;
     margin-top: 90px;
+}
+
+@media only screen and (min-width: 240px) and (max-width:320px)
+                       ,
+                       (min-width: 320px) and (max-width:480px)
+                       ,
+                       (min-width: 480px) and (max-width:768px)
+{
+    .login-section{
+        background-color: #b79f7c80;
+        height: 150px;
+        width: 200px;
+        margin: 0 auto;
+        margin-top: 200px;
+        border-radius: 6px;
+        padding: 50px;
+    }  
+    
+    .login-section input{
+        display: block;
+        position: relative;
+        right: 35px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0px solid;
+        height: 30px;
+        width: 230px;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    .login-section button{
+        position: relative;
+        left: 50px;
+        padding: 10px 30px;
+        font-size: 0.9rem;
+        color: #000;
+        border: 0px solid;
+        border-radius: 3px;
+        margin-top: 90px;
+    }    
 }

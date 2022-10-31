@@ -8,6 +8,7 @@ h1{
     text-align: center;
     position: relative;
     top: 100px;
+    margin-bottom: 120px;
 }
 .notepad{
     height: 300px;
